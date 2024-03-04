@@ -1,7 +1,7 @@
 function Resume(){
     return(
         <div>
-            <h2>About
+            <h2>My Resume
 
             </h2>
         </div>
