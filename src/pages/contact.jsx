@@ -1,41 +1,47 @@
-import {useState} from 'react';
-import {validateEmail} from '../utils/helpers';
+import { useState } from "react";
+import { validateEmail } from "../utils/helpers";
 
-function Contact(){
-    const [formState, setFormState] = useState({name: '', email: '', message: ''});
-    const {name, email, message} = formState;
-    const [errorMessage, setErrorMessage] = useState('');
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!errorMessage) {
-          console.log("Submit Form", formState);
-        }
-      };
-    
-      const handleChange = (e) => {
-        if (e.target.name === "email") {
-          const isValid = validateEmail(e.target.value);
-          if (!isValid) {
-            setErrorMessage("Your email is invalid.");
-          } else {
-            setErrorMessage("");
-          }
-        } else {
-          if (!e.target.value.length) {
-            setErrorMessage(`Your ${e.target.name} is required.`);
-          } else {
-            setErrorMessage("");
-          }
-        }
-        if (!errorMessage) {
-          setFormState({ ...formState, [e.target.name]: e.target.value });
-          console.log("Handle Form", formState);
-        }
-      };
+export default function contact() {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-    return(
-        <div className="container">
-            <form onSubmit={handleSubmit}>
+  const [errorMessage, setErrorMessage] = useState("");
+  const { name, email, message } = formState;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!errorMessage) {
+      console.log("Submit Form", formState);
+    }
+  };
+
+  const handleChange = (e) => {
+    if (e.target.name === "email") {
+      const isValid = validateEmail(e.target.value);
+      if (!isValid) {
+        setErrorMessage("Your email is invalid.");
+      } else {
+        setErrorMessage("");
+      }
+    } else {
+      if (!e.target.value.length) {
+        setErrorMessage(`Your ${e.target.name} is required.`);
+      } else {
+        setErrorMessage("");
+      }
+    }
+    if (!errorMessage) {
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+      console.log("Handle Form", formState);
+    }
+  };
+
+  return (
+    <div className="container">
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name:
@@ -79,7 +85,6 @@ function Contact(){
           <input className="btn btn-dark" type="submit" value="Submit"></input>
         </div>
       </form>
-        </div>
-    )
+    </div>
+  );
 }
-export default Contact
