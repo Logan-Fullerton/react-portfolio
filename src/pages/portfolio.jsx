@@ -5,6 +5,12 @@ import eftballistics from '../assets/eft.png';
 
 const projects = [
     {
+        name: 'EFT Ballistics',
+        image: eftballistics,
+        description: 'A ballistics calculator for Escape from Tarkov',
+        link: 'https://eft-ballistics.onrender.com/'
+    },
+    {
         name: 'Expense Tracker',
         image: expensetracker,
         description: 'A simple expense tracker to keep track of your expenses',
@@ -16,12 +22,6 @@ const projects = [
         description: 'A dashboard to keep track of stock market prices',
         link: 'https://logan-fullerton.github.io/Stock-Market-Dashboard/'
     },
-    {
-        name: 'EFT Ballistics',
-        image: eftballistics,
-        description: 'A ballistics calculator for Escape from Tarkov',
-        link: 'https://eft-ballistics.onrender.com/'
-    }
 ];
 
 function Portfolio() {
